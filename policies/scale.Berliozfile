@@ -12,6 +12,14 @@
 
 - kind: policy
   name: scale
+  service: inventory
+  deployment: prod
+  config:
+    min: 3
+    max: 3
+
+- kind: policy
+  name: scale
   service: web
   deployment: local
   config:

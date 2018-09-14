@@ -1,0 +1,9 @@
+- kind: policy
+  name: instance-type
+  deployment: prod
+  value: t2.micro
+
+- kind: policy
+  name: instance-type
+  deployment: test
+  value: t3.micro

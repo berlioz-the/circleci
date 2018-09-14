@@ -1,0 +1,8 @@
+- kind: policy
+  name: native-config
+  database: drugs
+  deployment: prod
+  config:
+    ProvisionedThroughput:
+      ReadCapacityUnits: 30
+      WriteCapacityUnits: 5

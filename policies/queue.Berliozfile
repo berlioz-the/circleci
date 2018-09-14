@@ -1,0 +1,7 @@
+- kind: policy
+  name: native-config
+  queue: jobs
+  deployment: prod
+  config:
+    ScalingType: UNIFORM_SCALING
+    TargetShardCount: 5
