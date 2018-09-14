@@ -46,7 +46,7 @@ jobs:
           command: berlioz login --user $BERLIOZ_USER --pass $BERLIOZ_PASS
       - run: 
           name: Berlioz Deploy
-          command: berlioz run --deployment test --cluster circle --region us-east-1 --version-metadata-path berlioz_workspace/version-metadata --wait --timeout 600
+          command: berlioz run --deployment test --cluster circle --region us-east-1 --version-metadata-path berlioz_workspace/version-metadata --wait --timeout 900
       - run: 
           name: Test Endpoint
           command: |
@@ -74,7 +74,7 @@ jobs:
           command: berlioz login --user $BERLIOZ_USER --pass $BERLIOZ_PASS
       - run: 
           name: Berlioz Deploy
-          command: berlioz run --deployment prod --cluster circle --region us-east-1 --version-metadata-path berlioz_workspace/version-metadata --wait --timeout 600
+          command: berlioz run --deployment prod --cluster circle --region us-east-1 --version-metadata-path berlioz_workspace/version-metadata --wait --timeout 900
       - run: 
           name: Test Endpoint
           command: |
