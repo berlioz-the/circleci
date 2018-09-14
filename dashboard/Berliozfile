@@ -1,0 +1,16 @@
+---
+kind: service
+cluster: circle
+name: dashboard
+
+provides:
+    default:
+        port: 4000
+        protocol: http
+
+consumes:
+    - database: dash
+
+resources:
+    memory:
+        min: 128

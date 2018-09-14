@@ -1,2 +1,2 @@
 # circleci
-Sample application for circleci integration.
+Sample application for CircleCI integration.

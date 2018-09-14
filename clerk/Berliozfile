@@ -1,0 +1,17 @@
+---
+kind: service
+cluster: circle
+name: clerk
+
+provides:
+    default:
+        port: 4000
+        protocol: http
+        load-balance: false
+
+consumes:
+    - queue: jobs
+
+resources:
+    memory:
+        min: 128

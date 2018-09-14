@@ -1,0 +1,14 @@
+---
+kind: database
+cluster: circle
+name: dash
+class: nosql
+subClass: dynamodb
+
+hashKey:
+    name: patient
+    type: String
+
+# rangeKey:
+#     name: full_name
+#     type: String

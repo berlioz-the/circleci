@@ -1,0 +1,19 @@
+---
+kind: service
+cluster: circle
+name: web
+
+provides:
+    default:
+        port: 3000
+        protocol: http
+        load-balance: true
+
+consumes:
+    - service: inventory
+    - service: clerk
+    - service: dashboard
+
+resources:
+    memory:
+        min: 100

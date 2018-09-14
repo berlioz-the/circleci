@@ -1,0 +1,12 @@
+---
+kind: service
+cluster: circle
+name: pharmacist
+
+consumes:
+    - queue: jobs
+    - service: dashboard
+
+resources:
+    memory:
+        min: 128

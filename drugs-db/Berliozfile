@@ -1,0 +1,10 @@
+---
+kind: database
+cluster: circle
+name: drugs
+class: nosql
+subClass: dynamodb
+
+hashKey:
+    name: name
+    type: String
