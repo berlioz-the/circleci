@@ -1,4 +1,4 @@
 FROM berliozcloud/node-9
 
-COPY src /app
+ADD src /app
 RUN npm install
