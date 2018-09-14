@@ -12,7 +12,9 @@ jobs:
       - run: 
           name: Project File Structure
           command: ls -la
-      - run: mkdir -p berlioz_workspace
+      - run: 
+          name: Berlioz Setup Workspace
+          command: mkdir -p berlioz_workspace
       - run: 
           name: Output Service Definitions
           command: sudo berlioz output-definitions
@@ -44,16 +46,19 @@ jobs:
           command: berlioz login --user $BERLIOZ_USER --pass $BERLIOZ_PASS
       - run: 
           name: Berlioz Deploy
-          command: berlioz run --deployment test --cluster cicle --region us-east-1 --version-metadata-path berlioz_workspace/version-metadata --wait --timeout 600
+          command: berlioz run --deployment test --cluster circle --region us-east-1 --version-metadata-path berlioz_workspace/version-metadata --wait --timeout 600
       - run: 
           name: Test Endpoint
           command: |
-            url=$(berlioz endpoint --deployment test --cluster cicle --region us-east-1 --endpoint web)
+            url=$(berlioz endpoint --deployment test --cluster circle --region us-east-1 --endpoint web)
             echo "Service Url: $url"
             curl -s -S $url 2>&1
       - run: 
+          name: Sleep Before Teardown
+          command: sleep 60
+      - run: 
           name: Berlioz Trigger Stop
-          command: berlioz stop --deployment test --cluster cicle --region us-east-1
+          command: berlioz stop --deployment test --cluster circle --region us-east-1
 
   deploy_to_production:
     docker:
@@ -69,11 +74,11 @@ jobs:
           command: berlioz login --user $BERLIOZ_USER --pass $BERLIOZ_PASS
       - run: 
           name: Berlioz Deploy
-          command: berlioz run --deployment prod --cluster cicle --region us-east-1 --version-metadata-path berlioz_workspace/version-metadata --wait --timeout 600
+          command: berlioz run --deployment prod --cluster circle --region us-east-1 --version-metadata-path berlioz_workspace/version-metadata --wait --timeout 600
       - run: 
           name: Test Endpoint
           command: |
-            url=$(berlioz endpoint --deployment prod --cluster cicle --region us-east-1 --endpoint web)
+            url=$(berlioz endpoint --deployment prod --cluster circle --region us-east-1 --endpoint web)
             echo "Service Url: $url"
             curl -s -S $url 2>&1
 
